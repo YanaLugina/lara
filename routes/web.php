@@ -19,12 +19,9 @@ Route::get('blade', function () {
     return view('child');
 });
 
-Route::get('/about', function () {
-    $tags = ['learn', 'create', 'complete'];
-    return view('about', ['tags' => $tags]);
-});
+Route::get('/about', 'PageController@about');
 
 Route::get('/articles', function () {
-    $articles = ['Статья 1', 'Статья 2', 'Статья 3'];
+    $articles = App\Article::all();
     return view('articles', ['articles' => $articles]);
 });
